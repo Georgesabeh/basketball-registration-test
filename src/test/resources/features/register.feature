@@ -1,6 +1,10 @@
-Feature: User registration on Basketball England
+Feature: Basketball England Registration
 
-  Scenario Outline: Register user with different inputs
+  As a new user
+  I want to register on the Basketball England website
+  So that I can become a supporter
+
+  Scenario Outline: Register new user with various inputs
     Given the user is on the registration page
     When the user enters first name "<firstname>"
     And the user enters last name "<lastname>"
@@ -11,11 +15,11 @@ Feature: User registration on Basketball England
     And the user selects date of birth "<dob>"
     And the user accepts terms "<terms>"
     And the user clicks the register button
-    Then the user should see "<expectedMessage>"
+    Then the user should see "<message>"
 
     Examples:
-      | firstname | lastname | email                   | confirmemail            | password      | confirmpassword | dob        | terms | expectedMessage                    |
-      | George    | Sabeh    | georgegasp123@gmail.com | georgegasp123@gmail.com | georgetest123 | georgetest123   | 11/09/2005 | true  | check your email                  |
-      | George    |          | georgegasp123@gmail.com | georgegasp123@gmail.com | georgetest123 | georgetest123   | 11/09/2005 | true  | this field is required            |
-      | George    | Sabeh    | georgegasp123@gmail.com | georgegasp123@gmail.com | test123       | test321         | 11/09/2005 | true  | password confirmation must match |
-      | George    | Sabeh    | georgegasp123@gmail.com | georgegasp123@gmail.com | georgetest123 | georgetest123   | 11/09/2005 | false | please accept the terms          |
+      | firstname | lastname | email                    | confirmemail           | password      | confirmpassword | dob        | terms | message                        |
+      | George    | Sabeh    | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | true  | Thank you for registering     |
+      | George    |          | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | true  | Please enter your last name   |
+      | George    | Sabeh    | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | wrongpass       | 11/09/2005 | true  | Passwords must match          |
+      | George    | Sabeh    | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | false | You must accept the terms     |
