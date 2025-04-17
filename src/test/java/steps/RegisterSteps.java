@@ -68,14 +68,14 @@ public class RegisterSteps {
 
     @When("the user enters password {string}")
     public void enterPassword(String password) {
-        By locator = By.id("signup_unlicenced_password");
+        By locator = By.id("signupunlicenced_password");
         waitForElement(locator);
         driver.findElement(locator).sendKeys(password);
     }
 
     @When("the user enters confirm password {string}")
     public void enterConfirmPassword(String confirmPassword) {
-        By locator = By.id("signup_unlicenced_confirmpassword");
+        By locator = By.id("signupunlicenced_confirmpassword");
         waitForElement(locator);
         driver.findElement(locator).sendKeys(confirmPassword);
     }
@@ -83,16 +83,20 @@ public class RegisterSteps {
     @When("the user selects date of birth {string}")
     public void selectDob(String dob) {
         String[] parts = dob.split("/"); // DD/MM/YYYY
-        new Select(driver.findElement(By.id("member_dateofbirth_3i"))).selectByValue(parts[0]);
-        new Select(driver.findElement(By.id("member_dateofbirth_2i"))).selectByValue(parts[1]);
-        new Select(driver.findElement(By.id("member_dateofbirth_1i"))).selectByValue(parts[2]);
+        driver.findElement(By.id("dp")).sendKeys(dob);
+
     }
 
     @When("the user accepts terms {string}")
     public void acceptTerms(String accept) {
-        WebElement checkbox = driver.findElement(By.id("iagree"));
-        if (accept.equalsIgnoreCase("true") && !checkbox.isSelected()) {
-            checkbox.click();
+        if (accept.equalsIgnoreCase("true")) {
+        WebElement checkbox1 = driver.findElement(By.cssSelector("label[for='sign_up_25") );
+        WebElement checkbox = driver.findElement(By.cssSelector("label[for='sign_up_26") );
+        WebElement checkbox2 = driver.findElement(By.cssSelector("label[for='fanmembersignup_agreetocodeofethicsandconduct"));
+        if (!checkbox1.isSelected()) checkbox1.click();
+        if (!checkbox.isSelected()) checkbox.click();
+        if (!checkbox2.isSelected()) checkbox2.click();
+
         }
     }
 
