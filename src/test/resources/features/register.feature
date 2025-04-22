@@ -19,7 +19,7 @@ Feature: Basketball England Registration
 
     Examples:
       | firstname | lastname | email                    | confirmemail           | password      | confirmpassword | dob        | terms | message                        |
-      | George    | Sabeh    | georgegasp123+A@gmail.com  | georgegasp123+A@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | true  | Thank you for registering     |
+      | George    | Sabeh    | georgegasp123+A@gmail.com  | georgegasp123+A@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | true  | Thank you for creating an account with Basketball England     |
       | George    |          | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | true  | Please enter your last name   |
       | George    | Sabeh    | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | wrongpass       | 11/09/2005 | true  | Passwords must match          |
       | George    | Sabeh    | georgegasp123@gmail.com  | georgegasp123@gmail.com| georgetest123 | georgetest123   | 11/09/2005 | false | You must accept the terms     |

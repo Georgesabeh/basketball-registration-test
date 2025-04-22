@@ -102,7 +102,7 @@ public class RegisterSteps {
 
     @When("the user clicks the register button")
     public void clickRegister() {
-        By locator = By.name("commit");
+        By locator = By.name("join");
         waitForElement(locator);
         driver.findElement(locator).click();
     }
